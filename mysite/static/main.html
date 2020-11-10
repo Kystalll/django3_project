@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在线聊天系统</title>
+</head>
+<body>
+<span id="welcome_words"></span>
+<button onclick="quit()">注销</button>
+<script type="text/javascript">
+    window.onload = function (){
+        var nickName = localStorage.getItem('nickName');
+        if(nickName){
+            var element = document.getElementById('welcome_words');
+            element.innerText = nickName + '，欢迎使用在线聊天系统';
+            return true
+        }
+        window.location.href = './index.html';
+    }
+    function quit(){
+        localStorage.removeItem('nickName');
+        window.location.href = './index.html';
+    }
+
+</script>
+</body>
+</html>
